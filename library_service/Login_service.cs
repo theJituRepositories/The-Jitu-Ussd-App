@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
 
 namespace library_service
 {
@@ -9,6 +8,54 @@ namespace library_service
         private const string UsersFilePath = @"D:\c#\Jitu_Ssd\Users.txt";
 
         public void Login()
+        {
+            Console.WriteLine("Login as?");
+            Console.WriteLine("1. Admin");
+            Console.WriteLine("2. User");
+
+            var loginAs = Console.ReadLine();
+            if (loginAs == "1")
+            {
+                LoginAsAdmin();
+            }
+
+            else if (loginAs == "2")
+            {
+                LoginAsUser();
+            }
+            else
+            {
+                Console.WriteLine("Invalid input");
+            }
+        }
+
+        private void LoginAsAdmin()
+        {
+            Console.Write("Enter the Admin name: ");
+            var admin_name = Console.ReadLine();
+            Console.Write("Enter the Admin password: ");
+            var admin_password = Console.ReadLine();
+
+            var validationService = new Validation_service();
+            if (validationService.IsValidInput(admin_name, admin_password) &&
+                validationService.isAdminExist(admin_name, admin_password))
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Login successful.");
+                // Display the admin panel
+                AdminPanel adminPanel = new AdminPanel();
+                adminPanel.Admin_menu();
+
+            }
+            else
+            {
+                Console.WriteLine("Login failed.");
+            }
+
+
+        }
+
+        private void LoginAsUser()
         {
             Console.Write("Enter user name: ");
             var user_name = Console.ReadLine();
@@ -21,11 +68,14 @@ namespace library_service
                 validationService.IsUserInFile(user_name, user_password))
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Login successful");
+                Console.WriteLine("Login successful.");
+                // Display the courses
+                DisplayCourses display = new DisplayCourses();
+                display.Display();
             }
             else
             {
-                Console.WriteLine("Login failed");
+                Console.WriteLine("Login failed.");
             }
         }
     }

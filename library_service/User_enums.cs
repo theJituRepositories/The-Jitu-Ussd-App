@@ -4,6 +4,8 @@
     {
         public string UserName { get; set; }
         public string UserPassword { get; set; }
+        public string AdminName { get; set; }
+        public string AdminPassword { get; set; }
         public UserRole Role { get; set; }
     }
 
@@ -12,4 +14,6 @@
         Admin,
         User
     }
+
+  
 }

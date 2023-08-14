@@ -41,14 +41,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataServiceDTO.cs" />
+    <Compile Include="AddCourses.cs" />
+    <Compile Include="Admin_Panel.cs" />
+    <Compile Include="CoursePlanDto.cs" />
+    <Compile Include="Course_enums.cs" />
+    <Compile Include="Course_service.cs" />
+    <Compile Include="DeleteCourse.cs" />
+    <Compile Include="Display_Courses.cs" />
     <Compile Include="Login_service.cs" />
     <Compile Include="path_manager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseCourse.cs" />
     <Compile Include="Registration_service.cs" />
+    <Compile Include="TeacherCouseCountDto.cs" />
+    <Compile Include="UpdateCourse.cs" />
     <Compile Include="User-menu.cs" />
     <Compile Include="User_enums.cs" />
     <Compile Include="Validation_service.cs" />
+    <Compile Include="ViewAnalytics.cs" />
+    <Compile Include="ViewCourses.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
